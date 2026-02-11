@@ -8,3 +8,18 @@ function toggleContent(id) {
     el.style.display = "none";
   }
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("formStatus");
+
+  if (form && status) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault(); // stops actual submission/reload
+
+      status.style.display = "block";
+      status.textContent = "Submission successful. Thanks — I’ll review your message.";
+
+      form.reset(); // clears the fields
+    });
+  }
+});
